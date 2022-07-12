@@ -3,4 +3,7 @@
     <string name="record_of_note_">text of note</string>
     <string name="title_of_note_">title_of_note</string>
     <string name="button_back">назад</string>
+    <string name="menu_about">О приложении</string>
+    <string name="menu_exit">Выход</string>
+    <string name="dsc_about">Информация о приложении</string>
 </resources>
