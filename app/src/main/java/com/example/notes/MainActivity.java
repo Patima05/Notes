@@ -2,11 +2,14 @@ package com.example.notes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         // Создаем фрагмент
         if (savedInstanceState == null) {
             TitlesFragment titlesFragment = new TitlesFragment();
-            // Вызываем FragmentManager
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container, titlesFragment)
@@ -25,15 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 RecordFragment recordFragment = new RecordFragment();
-                // Вызываем FragmentManager
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_record, recordFragment)
                         .commit();
             }
-
         }
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,11 +55,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAboutFragment() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, new AboutFragment())
-                .addToBackStack(null)
-                .commit();
+        boolean isShowAboutFragment = false;
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        for (Fragment fragment: fragments){
+            if (fragment instanceof AboutFragment){
+                isShowAboutFragment = true;
+            }
+        }
+        if (!isShowAboutFragment) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new AboutFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 
 
