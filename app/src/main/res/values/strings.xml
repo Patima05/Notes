@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">Заметки</string>
-    <string name="record_of_note_">text of note</string>
-    <string name="title_of_note_">title_of_note</string>
-    <string name="button_back">назад</string>
-    <string name="menu_about">О приложении</string>
-    <string name="menu_exit">Выход</string>
-    <string name="dsc_about">Информация о приложении</string>
+    <string name="button_back">Назад</string>
+    <string name="menu_search">Найти</string>
+    <string name="menu_sort">Сортировать</string>
+    <string name="menu_send">Поделиться</string>
+    <string name="navigation_drawer_open">opened</string>
+    <string name="navigation_drawer_close">closed</string>
+    <string name="add">Добавить</string>
+    <string name="clear">Очистить</string>
+    <string name="exit">Закрыть</string>
+    <string name="about_developers">О разработчиках</string>
+    <string name="change">Change</string>
+    <string name="drawer_header">Меню</string>
+    <string name="menu_tools">настройки</string>
+    <string name="menu_about">о приложении</string>
+    <string name="search_result">Результаты поиска</string>
+    <string name="tools">настройки</string>
+    <string name="info_about">Информация о приложении</string>
+    <string name="menu_add_img">Добавить изображение</string>
+
 </resources>

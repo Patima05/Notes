@@ -14,9 +14,9 @@
         android:text="@string/button_back"/>
 
     <TextView
-        android:id="@+id/textview_about"
+        android:id="@+id/text_view_tools"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/title_view_size"
-        android:text = "@string/info_about"/>
+        android:layout_height="@dimen/record_view_size"
+        android:text = "@string/tools"/>
 
-    </LinearLayout>
+</LinearLayout>

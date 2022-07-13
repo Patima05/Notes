@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/title_of_note_button_back"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_back"
         android:layout_width="match_parent"
+        android:layout_marginVertical="10dp"
+        app:cornerRadius="20dp"
         android:layout_height="@dimen/title_view_size"
-        android:text="@string/button_back"
-        android:contentDescription="@string/title_of_note_" />
+        android:text="@string/button_back"/>
 
     <TextView
         android:id="@+id/title_of_note_textview"
@@ -20,6 +21,5 @@
     <TextView
         android:id="@+id/record_of_note_textview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/record_view_size"
-        android:contentDescription="@string/record_of_note_" />
+        android:layout_height="@dimen/record_view_size" />
     </LinearLayout>

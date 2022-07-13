@@ -2,12 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_about"
-        android:title="@string/menu_about"
+        android:id="@+id/action_search"
+        android:title="@string/menu_search"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_exit"
-        android:title="@string/menu_exit"
+        android:id="@+id/action_sort"
+        android:title="@string/menu_sort"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_send"
+        android:title="@string/menu_send"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_add_img"
+        android:title="@string/menu_add_img"
+        app:showAsAction="ifRoom" />
+
 </menu>

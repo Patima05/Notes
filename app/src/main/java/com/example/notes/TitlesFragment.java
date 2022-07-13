@@ -3,11 +3,15 @@ package com.example.notes;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -22,7 +26,6 @@ public class TitlesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_titles, container, false);
-        //TextView textView = rootView.findViewById(R.id.some_id);
         return rootView;
 
     }
@@ -34,6 +37,15 @@ public class TitlesFragment extends Fragment {
             current_note = savedInstanceState.getParcelable(CURRENT_NOTE);
         }
         initList(view);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        MenuItem itemSend = menu.findItem(R.id.action_send);
+        itemSend.setVisible(false);
+        MenuItem itemAddImg = menu.findItem(R.id.action_add_img);
+        itemAddImg.setVisible(false);
     }
 
     // создаём список заметок на экране из массива в ресурсах
