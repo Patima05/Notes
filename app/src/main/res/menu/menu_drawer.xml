@@ -6,6 +6,12 @@
         android:title="@string/menu_tools" />
     <item
         android:id="@+id/action_about"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:icon="@android:drawable/ic_menu_gallery"
         android:title="@string/menu_about" />
+
+    <item
+        android:id="@+id/action_close"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/menu_close" />
+
 </menu>

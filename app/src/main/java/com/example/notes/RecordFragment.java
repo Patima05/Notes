@@ -87,7 +87,7 @@ public class RecordFragment extends Fragment {
                                 return true;
                             }
                             case R.id.action_popup_exit: {
-                                activity.finish();
+                                MenuMethods.showCloseAlertDialog(requireActivity());
                                 return true;
                             }
                         }
