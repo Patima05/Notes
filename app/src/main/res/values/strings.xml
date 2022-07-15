@@ -18,5 +18,7 @@
     <string name="tools">настройки</string>
     <string name="info_about">Информация о приложении</string>
     <string name="menu_add_img">Добавить изображение</string>
+    <string name="menu_close">Выход</string>
+    <string name="close_message">Вы действительно хотите выйти из приложения?</string>
 
 </resources>

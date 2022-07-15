@@ -2,11 +2,15 @@ package com.example.notes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         initDrawer(toolbar);
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void initDrawer(Toolbar toolbar) {
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,11 +72,15 @@ public class MainActivity extends AppCompatActivity {
                     drawer.close();
                     return true;
                 case R.id.action_about:
-                    showAboutFragment();
+                    MenuMethods.showAboutOfApp(this);
                     drawer.close();
                     return true;
+                case R.id.action_close:
+                    MenuMethods.showCloseAlertDialog(this);
+                    drawer.close();
+                    return true;
+                default: return false;
             }
-            return false;
         });
     }
 
@@ -81,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -136,24 +146,6 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
-    private void showAboutFragment() {
-        boolean isShowAboutFragment = false;
-        List<Fragment> fragments = getSupportFragmentManager().getFragments();
-        for (Fragment fragment: fragments){
-            if (fragment instanceof AboutFragment){
-                isShowAboutFragment = true;
-            }
-        }
-        if (!isShowAboutFragment) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, new AboutFragment())
-                    .addToBackStack(null)
-                    .commit();
-        }
-    }
-
     private void applySorting() {
         Toast.makeText(this, "Результат сортировки", Toast.LENGTH_SHORT).show();
     }
