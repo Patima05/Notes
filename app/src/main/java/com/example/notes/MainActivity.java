@@ -2,22 +2,19 @@ package com.example.notes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.notes.notes.NotesFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
@@ -32,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         initToolbarAndDrawer();
 
         if (savedInstanceState == null) {
-            TitlesFragment titlesFragment = new TitlesFragment();
+            NotesFragment notesFragment = new NotesFragment();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, titlesFragment)
+                    .replace(R.id.fragment_container, notesFragment)
                     .commit();
 
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

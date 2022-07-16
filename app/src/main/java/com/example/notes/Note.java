@@ -2,18 +2,27 @@ package com.example.notes;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.DatePicker;
 
 public class Note implements Parcelable {
-    private final Integer index;
+    private Integer index = 0;
     private String title;
     private String text;
     private String date;
+    private int imageIndex;
 
+    public int getImageIndex() {
+        return ++imageIndex;
+    }
 
-    public Note(Integer index, String title) {
+    public void setImageIndex(int imageIndex) {
+        this.imageIndex = imageIndex;
+    }
+
+    public Note(Integer index, String title, int imageIndex) {
         this.index = index;
         this.title = title;
+        this.text = text;
+        this.imageIndex = imageIndex;
     }
 
     public Note(Integer index, String title, String text, String date) {

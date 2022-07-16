@@ -9,16 +9,50 @@
     <string-array name="notesTitles">
         <item>Запись 1</item>
         <item>Запись 2</item>
+        <item>Запись 3</item>
+        <item>Запись 4</item>
+        <item>Запись 5</item>
+        <item>Запись 6</item>
+        <item>Запись 7</item>
+        <item>Запись 8</item>
+        <item>Запись 9</item>
+        <item>Запись 10</item>
+        <item>Запись 11</item>
+        <item>Запись 12</item>
     </string-array>
 
     <string-array name="notesRecords">
         <item>Текст записи номер 1</item>
         <item>Текст записи номер 2</item>
+        <item>Текст записи номер 3</item>
+        <item>Текст записи номер 4</item>
+        <item>Текст записи номер 5</item>
+        <item>Текст записи номер 6</item>
+        <item>Текст записи номер 7</item>
+        <item>Текст записи номер 8</item>
+        <item>Текст записи номер 9</item>
+        <item>Текст записи номер 10</item>
+        <item>Текст записи номер 11</item>
+        <item>Текст записи номер 12</item>
     </string-array>
 
     <string-array name="notesDate">
         <item>"12.11.22"</item>
         <item>"15.07.22"</item>
     </string-array>
+    <integer-array name="notesImages">
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+    </integer-array>
 
 </resources>

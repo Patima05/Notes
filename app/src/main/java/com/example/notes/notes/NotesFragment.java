@@ -1,12 +1,15 @@
-package com.example.notes;
+package com.example.notes.notes;
 
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,10 +17,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-public class TitlesFragment extends Fragment {
+import com.example.notes.Note;
+import com.example.notes.R;
+import com.example.notes.RecordFragment;
+import com.example.notes.notes.NotesAdapter;
+
+import java.util.ArrayList;
+
+public class NotesFragment extends Fragment {
 
     private Note current_note = null;
     private final String CURRENT_NOTE = "CURRENT_NOTE";
@@ -50,22 +58,32 @@ public class TitlesFragment extends Fragment {
 
     // создаём список заметок на экране из массива в ресурсах
     private void initList(View view) {
-        LinearLayout layoutView = (LinearLayout) view;
-        String[] notes = getResources().getStringArray(R.array.notesTitles);
-
-        for (int i = 0; i < notes.length; i++) {
-            String note = notes[i];
-            TextView tv = new TextView(getContext());
-            tv.setText(note);
-            tv.setTextSize(30);
-            layoutView.addView(tv);
-            final int position = i;
-            tv.setOnClickListener(v -> {
-                TitlesFragment.this.current_note = new Note(position, note);
-                showRecord(current_note);
-            });
-
+        ArrayList<Note> notes = new ArrayList<>();
+        String[] titles = getResources().getStringArray(R.array.notesTitles);
+        TypedArray images = getResources().obtainTypedArray(R.array.notesImages);
+        for (int i = 0; i < titles.length; i++) {
+            Note note = new Note(i, titles[i], images.getResourceId(i,0));
+            notes.add(note);
         }
+        RecyclerView rv = view.findViewById(R.id.rv_notes);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rv.setLayoutManager(llm);
+
+        NotesAdapter adapter = new NotesAdapter();
+        adapter.setList(notes);
+        adapter.setListener(new NotesClickListener() {
+            @Override
+            public void onImageClick(Note note) {
+                NotesFragment.this.current_note = note;
+                //showImageChooseFragment();
+            }
+
+            @Override
+            public void onTextViewClick(int position) {
+                showRecord(notes.get(position));
+            }
+        });
+        rv.setAdapter(adapter);
     }
     private void showRecord(Note note) {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
